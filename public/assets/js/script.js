@@ -3,9 +3,9 @@ $(function() {
 	// Initialize the Reveal.js library with the default config options
 	// See more here https://github.com/hakimel/reveal.js#configuration
 
-	Reveal.initialize({
-		history: true		// Every slide will change the URL
-	});
+	// Reveal.initialize({
+	// 	history: true		// Every slide will change the URL
+	// });
 
 	// Connect to the socket
 
