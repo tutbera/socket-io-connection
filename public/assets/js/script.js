@@ -3,9 +3,9 @@ $(function() {
 	// Initialize the Reveal.js library with the default config options
 	// See more here https://github.com/hakimel/reveal.js#configuration
 
-	// Reveal.initialize({
-	// 	history: true		// Every slide will change the URL
-	// });
+	Reveal.initialize({
+		history: true		// Every slide will change the URL
+	});
 
 	// Connect to the socket
 
@@ -41,14 +41,14 @@ $(function() {
 	// The server will either grant or deny access, depending on the secret key
 
 	socket.on('access', function(data){
+
 		// Check if we have "granted" access.
 		// If we do, we can continue with the presentation.
 
 		if(data.access === "granted") {
-			console.log(data, 'access done');
 
 			// Unblur everything
-			// presentation.removeClass('blurred');
+			presentation.removeClass('blurred');
 
 			form.hide();
 
@@ -64,7 +64,6 @@ $(function() {
 					return;
 				}
 
-				console.log(window.location.hash , 'event on ', hash, key);
 				var hash = window.location.hash;
 
 				socket.emit('slide-changed', {
@@ -76,7 +75,7 @@ $(function() {
 			socket.on('navigate', function(data){
 
 				// Another device has changed its slide. Change it in this browser, too:
-				console.log(data);
+
 				window.location.hash = data.hash;
 
 				// The "ignore" variable stops the hash change from
