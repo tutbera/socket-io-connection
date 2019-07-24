@@ -45,10 +45,10 @@ $(function() {
 		// If we do, we can continue with the presentation.
 
 		if(data.access === "granted") {
-			console.log(data, 'access');
+			console.log(data, 'access done');
 
 			// Unblur everything
-			presentation.removeClass('blurred');
+			// presentation.removeClass('blurred');
 
 			form.hide();
 
@@ -64,6 +64,7 @@ $(function() {
 					return;
 				}
 
+				console.log(window.location.hash , 'event on ', hash, key);
 				var hash = window.location.hash;
 
 				socket.emit('slide-changed', {

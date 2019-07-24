@@ -12,7 +12,7 @@ var express = require('express'),
 
 var port = process.env.PORT || 8080;
 
-// Initialize a new socket.io object. It is bound to 
+// Initialize a new socket.io object. It is bound to
 // the express app, which allows them to coexist.
 
 var io = require('socket.io').listen(app.listen(port));
@@ -33,7 +33,7 @@ var secret = 'kittens';
 
 var presentation = io.on('connection', function (socket) {
 
-	// A new client has come online. Check the secret key and 
+	// A new client has come online. Check the secret key and
 	// emit a "granted" or "denied" message.
 
 	socket.on('load', function(data){
@@ -53,7 +53,7 @@ var presentation = io.on('connection', function (socket) {
 		if(data.key === secret) {
 
 			// Tell all connected clients to navigate to the new slide
-			
+			console.log(data.hash);
 			presentation.emit('navigate', {
 				hash: data.hash
 			});
