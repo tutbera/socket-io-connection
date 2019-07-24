@@ -41,11 +41,11 @@ $(function() {
 	// The server will either grant or deny access, depending on the secret key
 
 	socket.on('access', function(data){
-
 		// Check if we have "granted" access.
 		// If we do, we can continue with the presentation.
 
 		if(data.access === "granted") {
+			console.log(data, 'access');
 
 			// Unblur everything
 			presentation.removeClass('blurred');
