@@ -73,9 +73,9 @@ $(function() {
 			});
 
 			socket.on('navigate', function(data){
-	
-				// Another device has changed its slide. Change it in this browser, too:
 
+				// Another device has changed its slide. Change it in this browser, too:
+				console.log(data);
 				window.location.hash = data.hash;
 
 				// The "ignore" variable stops the hash change from
@@ -101,7 +101,7 @@ $(function() {
 			// animation that shakes the text input.
 
 			secretTextBox.addClass('denied animation');
-			
+
 			animationTimeout = setTimeout(function(){
 				secretTextBox.removeClass('animation');
 			}, 1000);
